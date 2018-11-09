@@ -72,26 +72,26 @@
     <tr>
       <td rowspan="2">width</td>
       <td>min</td>
-      <td>拉伸最小宽度</td>
+      <td>拉伸最小宽度，大于defaultWidth时，defaultWidth以此为准</td>
       <td align="center">number</td>
       <td align="center">10</td>
     </tr>
     <tr>
       <td>max</td>
-      <td>拉伸最大宽度</td>
+      <td>拉伸最大宽度，小于defaultWidth时，defaultWidth以此为准</td>
       <td align="center">number</td>
       <td align="center">1000</td>
     </tr>
     <tr>
       <td rowspan="2">height</td>
       <td>min</td>
-      <td>拉伸最小高度</td>
+      <td>拉伸最小高度，大于defaultHeight时，defaultHeight以此为准</td>
       <td align="center">number</td>
       <td align="center">10</td>
     </tr>
     <tr>
       <td>max</td>
-      <td>拉伸最大高度</td>
+      <td>拉伸最大高度，小于defaultHeight时，defaultHeight以此为准</td>
       <td align="center">number</td>
       <td align="center">500</td>
     </tr>
