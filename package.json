@@ -1,5 +1,5 @@
 {
-  "name": "react-zoomable",
+  "name": "react-dragzoom",
   "version": "1.0.0",
   "description": "基于react-draggable的可拖拽拉伸插件",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "npm run clear && cross-env NODE_ENV=production webpack --mode production --progress",
     "start": "cross-env NODE_ENV=development webpack-dev-server --content-base"
   },
-  "keywords": ["react", "drag", "js", "npm", "zoomable"],
+  "keywords": ["react", "drag", "js", "npm", "zoom", "drop"],
   "homepage": "https://github.com/agro-brain/react-zoomable",
   "bugs": "https://github.com/agro-brain/react-zoomable/issues",
   "author": "yanjun",

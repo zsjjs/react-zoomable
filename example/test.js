@@ -13,6 +13,15 @@ class App extends React.Component {
           min: 200,//default 10 拉伸最小高度
           max: 300//default 500 拉伸最大高度
         }
+      },
+      onZoomStart: (/*result*/) => {
+        //console.log(result);
+      },
+      onZoomEnd: (/*result*/) => {
+        //console.log(result);
+      },
+      onZooming: (result) => {
+        console.log(result);
       }
     }
     return <Zoomable {...testOption}>

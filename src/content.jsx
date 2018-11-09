@@ -25,8 +25,8 @@ class Content extends Component {
       width: this.defaultSize(defaultWidth, width.min, width.max),
       height: this.defaultSize(defaultHeight, height.min, height.max),
       position: {
-        x: props.defaultPositionX,
-        y: props.defaultPositionY
+        x: props.positionX,
+        y: props.positionX
       },
       coordinate: {
         x: 0,
@@ -59,7 +59,10 @@ class Content extends Component {
       }
     };
     document.documentElement.onmouseup = () => {
-      Handle.mouseupHandle(this);
+      const { isdrawing } = this.state;
+      if (isdrawing) {
+        Handle.mouseupHandle(this);
+      }
     };
   }
 

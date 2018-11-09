@@ -15,11 +15,22 @@ class Handle {
         y: event.clientY
       },
       position: {
-        x: this.props.defaultPositionX,
-        y: this.props.defaultPositionY
+        x: this.props.positionX,
+        y: this.props.positionY
       },
       reverseX: direction.indexOf("left") > -1,
       reverseY: direction.indexOf("top") > -1
+    }, () => {
+      const onZoomStart = this.props.onZoomStart;
+      onZoomStart && (typeof onZoomStart === "function") && onZoomStart({
+        direction,
+        position: {
+          x: this.props.positionX,
+          y: this.props.positionY
+        },
+        width: this.state.width,
+        height: this.state.height
+      });
     });
   }
   static mouseupHandle(me) {//zoomable结束拉伸
@@ -28,11 +39,33 @@ class Handle {
       isdrawing: 0,
       width: this.calculation(me, "width"),
       height: this.calculation(me, "height"),
-      direction: "",
       change: {
         x: 0,
         y: 0
       }
+    }, () => {
+      const onZoomEnd = me.props.onZoomEnd;
+      onZoomEnd && (typeof onZoomEnd === "function") && onZoomEnd({
+        direction: me.state.direction,
+        position: {
+          x: me.props.positionX,
+          y: me.props.positionY
+        },
+        width: me.state.width,
+        height: me.state.height
+      });
+    });
+  }
+  static onZooming(zoomable, position={}) {
+    const onZooming = zoomable.props.onZooming;
+    onZooming && (typeof onZooming === "function") && onZooming({
+      direction: zoomable.state.direction,
+      position: {
+        x: position.x || zoomable.props.positionX,
+        y: position.y || zoomable.props.positionY
+      },
+      width: zoomable.state.width,
+      height: zoomable.state.height
     });
   }
   static topMove(me, event) {//zoomable向上拉伸
@@ -47,6 +80,7 @@ class Handle {
     }, () => {
       const npositionY = this.offset(me, position.y, changeY, "height");
       changePosition(null, npositionY);
+      this.onZooming(me, {y: npositionY});
     });
   }
   static rightMove(me, event) {//zoomable向右拉伸
@@ -56,6 +90,8 @@ class Handle {
         x: event.clientX - coordinate.x,
         y: change.y
       }
+    }, () => {
+      this.onZooming(me);
     });
   }
   static bottomMove(me, event) {//zoomable向下拉伸
@@ -65,6 +101,8 @@ class Handle {
         x: change.x,
         y: event.clientY - coordinate.y
       }
+    }, () => {
+      this.onZooming(me);
     });
   }
   static leftMove(me, event) {//zoomable向左拉伸
@@ -79,6 +117,7 @@ class Handle {
     }, () => {
       const npositionX = this.offset(me, position.x, changeX, "width");
       changePosition(npositionX);
+      this.onZooming(me, {x: npositionX});
     });
   }
   static width(me) {//获取最新的width,minWidth,maxWidth

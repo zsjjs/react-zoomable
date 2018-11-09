@@ -95,4 +95,22 @@
       <td align="center">number</td>
       <td align="center">500</td>
     </tr>
+    <tr>
+      <td colspan="3">onZoomStart</td>
+      <td>拉伸开始时调用</td>
+      <td align="center">function(param=object{direction:方向,position:位置{x,y},width:宽度,height:高度})</td>
+      <td align="center">-</td>
+    </tr>
+    <tr>
+      <td colspan="3">onZooming</td>
+      <td>拉伸进行中调用</td>
+      <td align="center">function(param=object{direction:方向,position:位置{x,y},width:宽度,height:高度})</td>
+      <td align="center">-</td>
+    </tr>
+    <tr>
+      <td colspan="3">onZoomEnd</td>
+      <td>拉伸结束时调用</td>
+      <td align="center">function(param=object{direction:方向,position:位置{x,y},width:宽度,height:高度})</td>
+      <td align="center">-</td>
+    </tr>
 </table>
