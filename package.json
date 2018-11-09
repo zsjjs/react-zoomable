@@ -1,5 +1,5 @@
 {
-  "name": "react-dragzoom",
+  "name": "react-drag-zoom",
   "version": "1.0.0",
   "description": "基于react-draggable的可拖拽拉伸插件",
   "scripts": {
