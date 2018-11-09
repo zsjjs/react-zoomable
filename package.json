@@ -10,6 +10,7 @@
   },
   "keywords": ["react", "drag", "js", "npm", "zoomable"],
   "homepage": "https://github.com/agro-brain/react-zoomable",
+  "bugs": "https://github.com/agro-brain/react-zoomable/issues",
   "author": "yanjun",
   "license": "MIT",
   "main": "dist/zoomable.js",

@@ -9,8 +9,8 @@ class Zoomable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      positionX: props.positionX || 0,
-      positionY: props.positionY || 0
+      positionX: props.defaultPositionX || 0,
+      positionY: props.defaultPositionY || 0
     };
   }
   componentDidMount() {
@@ -65,8 +65,8 @@ class Zoomable extends Component {
 }
 
 Zoomable.propTypes = {
-  positionX: PropTypes.number,//default 0 //主体相对移动X轴
-  positionY: PropTypes.number,//default 0 //主体相对移动Y轴
+  defaultPositionX: PropTypes.number,//default 0 //主体相对移动X轴
+  defaultPositionY: PropTypes.number,//default 0 //主体相对移动Y轴
   defaultWidth: PropTypes.number,//default 100
   defaultHeight:PropTypes.number,//default 100
   draggable: PropTypes.shape({
@@ -76,8 +76,8 @@ Zoomable.propTypes = {
   }),
   zoomable: PropTypes.shape({
     used: PropTypes.bool,//default true, 是否使用拉伸功能
-    direction: PropTypes.array,//["top", "right-top", "right", "right-bottom", "bottom", "left-bottom", "left", "left-top"]default all, 是否使用拉伸功能
-    borderWidth: PropTypes.number,//default 2
+    direction: PropTypes.array,//["top", "right-top", "right", "right-bottom", "bottom", "left-bottom", "left", "left-top"]default all, 可拉伸方向
+    borderWidth: PropTypes.number,//default 2 外围可拉伸范围
     width: PropTypes.shape({
       min: PropTypes.number,//default 10 拉伸最小宽度
       max: PropTypes.number//default 1000 拉伸最大宽度

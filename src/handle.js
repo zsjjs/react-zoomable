@@ -15,8 +15,8 @@ class Handle {
         y: event.clientY
       },
       position: {
-        x: this.props.positionX,
-        y: this.props.positionY
+        x: this.props.defaultPositionX,
+        y: this.props.defaultPositionY
       },
       reverseX: direction.indexOf("left") > -1,
       reverseY: direction.indexOf("top") > -1

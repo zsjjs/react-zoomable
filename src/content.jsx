@@ -25,8 +25,8 @@ class Content extends Component {
       width: this.defaultSize(defaultWidth, width.min, width.max),
       height: this.defaultSize(defaultHeight, height.min, height.max),
       position: {
-        x: props.positionX,
-        y: props.positionY
+        x: props.defaultPositionX,
+        y: props.defaultPositionY
       },
       coordinate: {
         x: 0,
