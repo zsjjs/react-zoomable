@@ -13,25 +13,25 @@
     </tr>
     <tr>
       <td colspan="3">defaultPositionX</td>
-      <td>默认相对X轴的位移</td>
+      <td>相对X轴的位移</td>
       <td align="center">number</td>
       <td align="center">0</td>
     </tr>
     <tr>
       <td colspan="3">defaultPositionY</td>
-      <td>默认相对Y轴的位移</td>
+      <td>相对Y轴的位移</td>
       <td align="center">number</td>
       <td align="center">0</td>
     </tr>
     <tr>
       <td colspan="3">defaultWidth</td>
-      <td>默认宽度</td>
+      <td>宽度</td>
       <td align="center">number</td>
       <td align="center">100</td>
     </tr>
     <tr>
       <td colspan="3">defaultHeight</td>
-      <td>默认高度</td>
+      <td>高度</td>
       <td align="center">number</td>
       <td align="center">100</td>
     </tr>
