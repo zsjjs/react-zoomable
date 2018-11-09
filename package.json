@@ -1,5 +1,5 @@
 {
-  "name": "react-drag-zoom",
+  "name": "react-stretchable",
   "version": "1.0.0",
   "description": "基于react-draggable的可拖拽拉伸插件",
   "scripts": {
