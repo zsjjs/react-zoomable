@@ -4,9 +4,6 @@ class App extends React.Component {
   }
   render() {
     const testOption = {
-      draggable: {
-        used: false
-      },
       zoomable: {
         width: {
           min: 200,//default 10 拉伸最小宽度

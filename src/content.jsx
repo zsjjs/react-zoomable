@@ -106,7 +106,7 @@ class Content extends Component {
         width: fixedWidth || Handle.calculation(me, "width"),
         height: fixedHeight || Handle.calculation(me, "height")
       }}>
-        <div className={`size${timestamp}`}>
+        <div className={`stretchable-size size${timestamp}`}>
           {children}
         </div>
       </div>
