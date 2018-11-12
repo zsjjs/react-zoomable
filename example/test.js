@@ -10,8 +10,8 @@ class App extends React.Component {
           max: 300//default 1000 拉伸最大宽度
         },
         height: {
-          min: 200,//default 10 拉伸最小高度
-          max: 300//default 500 拉伸最大高度
+          min: 300,//default 10 拉伸最小高度
+          max: 500//default 500 拉伸最大高度
         }
       },
       onZoomStart: (/*result*/) => {
@@ -26,8 +26,8 @@ class App extends React.Component {
     }
     return <Zoomable {...testOption}>
       <div style={{
-        width: "100%",
-        height: "100%",
+        width: 500,
+        height: 500,
         background: "#cccccc"
       }}></div>
     </Zoomable>;

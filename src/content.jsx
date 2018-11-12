@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import './zoomable.less';
 import Handle from './handle';
-
+const timestamp = Date.now();
 const defaultProps = {
   used: true,
   direction: ["top", "right-top", "right", "right-bottom", "bottom", "left-bottom", "left", "left-top"],
@@ -11,19 +11,11 @@ const defaultProps = {
 class Content extends Component {
   constructor(props) {
     super(props);
-    const {
-      defaultWidth,
-      defaultHeight,
-      zoomable: {
-        width = {},
-        height = {}
-      } = {}
-    } = props;
     this.state = {
       isdrawing: 0,
       direction: "",
-      width: this.defaultSize(defaultWidth, width.min, width.max),
-      height: this.defaultSize(defaultHeight, height.min, height.max),
+      width: 0,
+      height: 0,
       position: {
         x: props.positionX,
         y: props.positionX
@@ -40,18 +32,13 @@ class Content extends Component {
       reverseY: false
     };
   }
-
-  defaultSize(defaultSize=100, min, max) {
-    if (min && defaultSize < min) {
-      return min;
-    } else if (max && defaultSize > max) {
-      return max;
-    } else {
-      return defaultSize;
-    }
-  }
-
   componentDidMount() {
+    const {
+      zoomable: {
+        width = {},
+        height = {}
+      } = {}
+    } = this.props;
     document.documentElement.onmousemove = (event) => {
       const {isdrawing, direction} = this.state;
       if (isdrawing) {
@@ -64,8 +51,21 @@ class Content extends Component {
         Handle.mouseupHandle(this);
       }
     };
+    const childNode = document.querySelector(`.size${timestamp}`).childNodes[0];
+    this.setState({
+      width: this.defaultSize(childNode.offsetWidth, width.min, width.max),
+      height: this.defaultSize(childNode.offsetHeight, height.min, height.max)
+    });
   }
-
+  defaultSize(defaultSize, min, max) {
+    if (min && min > defaultSize) {
+      return min;
+    } else if (max && max < defaultSize) {
+      return max;
+    } else {
+      return defaultSize;
+    }
+  }
   boxStyle(props) {
     let padding = [{
       top: 0
@@ -97,7 +97,6 @@ class Content extends Component {
       }).join(" ")
     };
   }
-
   render() {
     const me = this;
     const {children, zoomable} = me.props;
@@ -107,7 +106,9 @@ class Content extends Component {
         width: Handle.calculation(me, "width"),
         height: Handle.calculation(me, "height")
       }}>
-        {children}
+        <div className={`size${timestamp}`}>
+          {children}
+        </div>
       </div>
       {props.used && props.direction.map(item => {
         let border = props.borderWidth;

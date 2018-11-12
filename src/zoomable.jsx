@@ -67,8 +67,6 @@ class Zoomable extends Component {
 Zoomable.propTypes = {
   defaultPositionX: PropTypes.number,//default 0 //主体相对移动X轴
   defaultPositionY: PropTypes.number,//default 0 //主体相对移动Y轴
-  defaultWidth: PropTypes.number,//default 100
-  defaultHeight:PropTypes.number,//default 100
   draggable: PropTypes.shape({
     used: PropTypes.bool,//default true, 是否使用react-draggable
     options: PropTypes.object,//react-draggable api, Invalid props: [position, defaultPosition],

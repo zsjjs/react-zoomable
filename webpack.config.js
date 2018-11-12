@@ -3,7 +3,8 @@ const path = require("path");
 const webpack = require("webpack");
 const env = process.env.NODE_ENV;
 const entry = {
-  index: './src/index.js'
+  zoomable: './src/index.js',
+  "zoomable.min": './src/index.js'
 };
 const plugins = [
   new webpack.HotModuleReplacementPlugin(),
@@ -15,8 +16,11 @@ module.exports = {
   mode: env,
   entry: entry,
   output: {
-    filename: 'zoomable.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist'),
+    libraryExport: 'default',
+    library: 'Zoomable',
+    libraryTarget: 'umd'
   },
   performance: {
     hints: false

@@ -24,18 +24,6 @@
       <td align="center">0</td>
     </tr>
     <tr>
-      <td colspan="3">defaultWidth</td>
-      <td>宽度</td>
-      <td align="center">number</td>
-      <td align="center">100</td>
-    </tr>
-    <tr>
-      <td colspan="3">defaultHeight</td>
-      <td>高度</td>
-      <td align="center">number</td>
-      <td align="center">100</td>
-    </tr>
-    <tr>
       <td rowspan="3">draggable</td>
       <td colspan="2">used</td>
       <td>是否使用react-draggable拖拽功能</td>
@@ -72,7 +60,7 @@
     <tr>
       <td rowspan="2">width</td>
       <td>min</td>
-      <td>拉伸最小宽度，大于defaultWidth时，defaultWidth以此为准</td>
+      <td>拉伸最小宽度，如果存在即为默认</td>
       <td align="center">number</td>
       <td align="center">10</td>
     </tr>
