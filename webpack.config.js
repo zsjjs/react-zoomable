@@ -3,8 +3,7 @@ const path = require("path");
 const webpack = require("webpack");
 const env = process.env.NODE_ENV;
 const entry = {
-  zoomable: './src/index.js',
-  "zoomable.min": './src/index.js'
+  zoomable: './src/index.js'
 };
 const plugins = [
   new webpack.HotModuleReplacementPlugin(),
@@ -12,6 +11,7 @@ const plugins = [
     React: 'react'
   })
 ];
+
 module.exports = {
   mode: env,
   entry: entry,

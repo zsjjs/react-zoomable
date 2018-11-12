@@ -5,31 +5,31 @@ const defaultValue = {
   maxHeight: 500
 };
 class Handle {
-  static mousedownHandle(direction) {//zoomable开始拉伸,this指向Content
+  static mousedownHandle(me, e, direction) {//zoomable开始拉伸,this指向Content
     document.body.classList.add("user-select-none");
-    this.setState({
+    me.setState({
       isdrawing: 1,
       direction: direction,
       coordinate: {
-        x: event.clientX,
-        y: event.clientY
+        x: e.clientX,
+        y: e.clientY
       },
       position: {
-        x: this.props.positionX,
-        y: this.props.positionY
+        x: me.props.positionX,
+        y: me.props.positionY
       },
       reverseX: direction.indexOf("left") > -1,
       reverseY: direction.indexOf("top") > -1
     }, () => {
-      const onZoomStart = this.props.onZoomStart;
+      const onZoomStart = me.props.onZoomStart;
       onZoomStart && (typeof onZoomStart === "function") && onZoomStart({
         direction,
         position: {
-          x: this.props.positionX,
-          y: this.props.positionY
+          x: me.props.positionX,
+          y: me.props.positionY
         },
-        width: this.state.width,
-        height: this.state.height
+        width: me.state.width,
+        height: me.state.height
       });
     });
   }

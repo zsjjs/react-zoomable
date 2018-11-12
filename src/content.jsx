@@ -120,7 +120,9 @@ class Content extends Component {
             width: `${border}px`,
             height: `${border}px`
           }}
-          onMouseDown={Handle.mousedownHandle.bind(me, item)}
+          onMouseDown={(e) => {
+            Handle.mousedownHandle(me, e, item);
+          }}
         ></div>;
       })}
     </div>;

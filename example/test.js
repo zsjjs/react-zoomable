@@ -4,6 +4,9 @@ class App extends React.Component {
   }
   render() {
     const testOption = {
+      draggable: {
+        used: false
+      },
       zoomable: {
         width: {
           min: 200,//default 10 拉伸最小宽度
@@ -14,22 +17,18 @@ class App extends React.Component {
           max: 500//default 500 拉伸最大高度
         }
       },
-      onZoomStart: (/*result*/) => {
-        //console.log(result);
+      onZoomStart: (result) => {
+        console.log("onZoomStart", result);
       },
-      onZoomEnd: (/*result*/) => {
-        //console.log(result);
+      onZoomEnd: (result) => {
+        console.log("onZoomEnd", result);
       },
       onZooming: (result) => {
-        console.log(result);
+        console.log("onZooming", result);
       }
     }
     return <Zoomable {...testOption}>
-      <div style={{
-        width: 500,
-        height: 500,
-        background: "#cccccc"
-      }}></div>
+      <div className="test"></div>
     </Zoomable>;
   }
 };

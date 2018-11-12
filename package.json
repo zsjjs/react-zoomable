@@ -1,11 +1,11 @@
 {
   "name": "react-stretchable",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "description": "基于react-draggable的可拖拽拉伸插件",
   "scripts": {
     "check": "jsinspect ./src",
     "clear": "rm -rf dist&& mkdir dist",
-    "build": "npm run clear && cross-env NODE_ENV=production webpack --mode production --progress",
+    "build": "npm run clear && cross-env NODE_ENV=production webpack --progress",
     "start": "cross-env NODE_ENV=development webpack-dev-server --content-base"
   },
   "keywords": [
@@ -20,7 +20,7 @@
   "bugs": "https://github.com/agro-brain/react-zoomable/issues",
   "author": "yanjun",
   "license": "MIT",
-  "main": "dist/zoomable.min.js",
+  "main": "dist/zoomable.js",
   "jsnext:main": "src/index.js",
   "repository": "https://github.com/agro-brain/react-zoomable.git",
   "files": [
