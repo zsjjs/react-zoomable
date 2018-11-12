@@ -99,12 +99,12 @@ class Content extends Component {
   }
   render() {
     const me = this;
-    const {children, zoomable} = me.props;
+    const {children, zoomable, fixedWidth, fixedHeight} = me.props;
     const props = Object.assign({}, defaultProps, zoomable);
     return <div className="zoomable-box" style={me.boxStyle(props)}>
       <div className="zoomable-content" style={{
-        width: Handle.calculation(me, "width"),
-        height: Handle.calculation(me, "height")
+        width: fixedWidth || Handle.calculation(me, "width"),
+        height: fixedHeight || Handle.calculation(me, "height")
       }}>
         <div className={`size${timestamp}`}>
           {children}

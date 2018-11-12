@@ -24,6 +24,18 @@
       <td align="center">0</td>
     </tr>
     <tr>
+      <td colspan="3">fixedWidth</td>
+      <td>固定宽度，用于不拉伸宽度的情况下，一般使用非Number类型的宽度样式</td>
+      <td align="center"></td>
+      <td align="center">null</td>
+    </tr>
+    <tr>
+      <td colspan="3">fixedHeight</td>
+      <td>固定高度，用于不拉伸高度的情况下，一般使用非Number类型的高度样式</td>
+      <td align="center"></td>
+      <td align="center">null</td>
+    </tr>
+    <tr>
       <td rowspan="3">draggable</td>
       <td colspan="2">used</td>
       <td>是否使用react-draggable拖拽功能</td>
