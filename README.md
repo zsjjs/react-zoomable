@@ -1,6 +1,6 @@
 # react-stretchable
 
-#### 基于react-draggable的拖拽缩放插件
+#### 基于react的拖拽缩放插件
 
 ##### API
 
@@ -48,7 +48,7 @@
         <a target="_blank" href="https://www.npmjs.com/package/react-draggable#draggable-api">react-draggable api</a> Invalid props: [position, defaultPosition]
       </td>
       <td align="center">object</td>
-      <td align="center">-</td>
+      <td align="center">null</td>
     </tr>
     <tr>
       <td colspan="2">handleCursor</td>
