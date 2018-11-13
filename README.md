@@ -1,5 +1,7 @@
 # react-stretchable
 
+[![npm version](https://img.shields.io/npm/v/react-stretchable.svg?style=flat)](https://www.npmjs.com/package/react-stretchable) [![download](https://img.shields.io/npm/dm/react-stretchable.svg?style=flat)](https://www.npmjs.com/package/react-stretchable) [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/zsjjs/react-stretchable/master/LICENSE)
+
 #### 基于react的拖拽缩放插件
 
 ##### API
