@@ -29,7 +29,7 @@ class Zoomable extends Component {
   render() {
     const me = this;
     const { positionX, positionY } = me.state;
-    const { draggable={} } = me.props;
+    const { draggable={} , className="", style={}} = me.props;
     const options = Object.assign({
       handle: `.${defaultDragArea}`
     }, draggable.options, {
@@ -42,9 +42,10 @@ class Zoomable extends Component {
         draggable.options && typeof draggable.options.onStop === 'function' && draggable.options.onStop();
       }
     });
-    return (draggable.used === false ? <div className="transform-box" style={{
+    return (draggable.used === false ? <div className={`transform-box ${className}`} style={{
       touchAction: "none",
-      transform: `translate(${positionX}px, ${positionY}px)`
+      transform: `translate(${positionX}px, ${positionY}px)`,
+      ...style
       }}><Content
         {...me.props}
         changePosition={me.changePosition.bind(me)}
@@ -52,7 +53,7 @@ class Zoomable extends Component {
         positionY={positionY}
       /></div> :
       <Draggable {...options}>
-        <div className="transform-box">
+        <div style={style} className={`transform-box ${className}`}>
           <Content
             test={me} {...me.props}
             changePosition={me.changePosition.bind(me)}
@@ -65,6 +66,8 @@ class Zoomable extends Component {
 }
 
 Zoomable.propTypes = {
+  className: PropTypes.string,
+  style: PropTypes.object,
   defaultPositionX: PropTypes.number,//default 0 //主体相对移动X轴
   defaultPositionY: PropTypes.number,//default 0 //主体相对移动Y轴
   draggable: PropTypes.shape({
