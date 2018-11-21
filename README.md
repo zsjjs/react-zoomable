@@ -62,6 +62,18 @@
       <td align="center">move</td>
     </tr>
     <tr>
+      <td colspan="3">className</td>
+      <td>添加class样式</td>
+      <td align="center">string</td>
+      <td align="center">""</td>
+    </tr>
+    <tr>
+      <td colspan="3">style</td>
+      <td>添加style属性</td>
+      <td align="center">object</td>
+      <td align="center">{}</td>
+    </tr>
+    <tr>
       <td rowspan="6">zoomable</td>
       <td colspan="2">used</td>
       <td>是否使用拉伸功能</td>
