@@ -122,7 +122,7 @@
 
 ### View the <a href="https://codepen.io/godIsMe/pen/NEXzgr">Demo</a> and its <a href="https://github.com/zsjjs/react-zoomable/blob/master/example/test.js">source</a> for more.
 
-```
+``` js
     import Zoomable from 'react-stretchable';
     
     class App extends React.Component {
