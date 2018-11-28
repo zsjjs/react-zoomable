@@ -1,6 +1,6 @@
 {
   "name": "react-stretchable",
-  "version": "1.0.16",
+  "version": "1.1.0",
   "description": "基于react-draggable的可拖拽拉伸插件",
   "scripts": {
     "check": "jsinspect ./src",
