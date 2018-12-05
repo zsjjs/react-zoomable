@@ -1,3 +1,6 @@
+/* @author yanjun
+ * @date 2018.09
+*/
 const defaultValue = {
   minWidth: 10,
   maxWidth: 1000,

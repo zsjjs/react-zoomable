@@ -1,3 +1,6 @@
+/* @author yanjun
+ * @date 2018.09
+*/
 import './zoomable.less';
 import { Component } from 'react';
 import Draggable from 'react-draggable';

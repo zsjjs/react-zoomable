@@ -1,3 +1,6 @@
+/* @author yanjun
+ * @date 2018.09
+*/
 import {Component} from 'react';
 import './zoomable.less';
 import Handle from './handle';
