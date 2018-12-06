@@ -132,7 +132,7 @@
     <tr>
       <td rowspan="2">width</td>
       <td>min</td>
-      <td>大于内容宽度时，设置为默认宽度/td>
+      <td>大于内容宽度时，设置为默认宽度</td>
       <td align="center">number</td>
       <td align="center">10</td>
     </tr>
