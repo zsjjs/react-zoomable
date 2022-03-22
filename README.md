@@ -7,7 +7,7 @@
 
 #### 基于react的拖拽缩放插件
 
-### View the <a href="https://codepen.io/godIsMe/pen/NEXzgr">Demo</a> and its <a href="https://github.com/zsjjs/react-zoomable/blob/master/example/test.js">source</a> for more.
+### View the <a href="https://codepen.io/godIsMe/pen/NEXzgr">Demo</a> and its <a href="https://github.com/zsjjs/react-zoomable/blob/master/example/test.js">source</a> for more
 
 ``` js
     import Zoomable from 'react-stretchable';
@@ -122,6 +122,12 @@
       <td>是否使用拉伸功能</td>
       <td align="center">boolean</td>
       <td align="center">true</td>
+    </tr>
+    <tr>
+      <td colspan="2">boxSync</td>
+      <td>最外层是否需要同步宽高样式</td>
+      <td align="center">boolean</td>
+      <td align="center">false</td>
     </tr>
     <tr>
       <td colspan="2">direction</td>

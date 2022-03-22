@@ -89,7 +89,8 @@ Zoomable.propTypes = {
     height: PropTypes.shape({
       min: PropTypes.number,//default 10 拉伸最小高度
       max: PropTypes.number//default 500 拉伸最大高度
-    })
+    }),
+    boxSync: PropTypes.bool//default false, 最外层是否需要同步宽高样式
   }),
   onZoomStart: PropTypes.func,//拉伸开始时调用,param{direction:方向,position:位置{x,y},width:宽度,height:高度}
   onZooming: PropTypes.func,//拉伸进行中调用,param同上

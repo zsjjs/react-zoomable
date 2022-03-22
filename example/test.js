@@ -12,7 +12,8 @@ class App extends React.Component {
         height: {
           min: 200,//default 10 拉伸最小高度
           max: 500//default 500 拉伸最大高度
-        }
+        },
+        boxSync: true
       },
       onZoomStart: (result) => {
         console.log("onZoomStart", result);

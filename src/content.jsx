@@ -8,7 +8,8 @@ const timestamp = Date.now();
 const defaultProps = {
   used: true,
   direction: ["top", "right-top", "right", "right-bottom", "bottom", "left-bottom", "left", "left-top"],
-  borderWidth: 2
+  borderWidth: 2,
+  boxSync: true
 };
 
 class Content extends Component {
@@ -104,7 +105,13 @@ class Content extends Component {
     const me = this;
     const {children, zoomable, fixedWidth, fixedHeight} = me.props;
     const props = Object.assign({}, defaultProps, zoomable);
-    return <div className="zoomable-box" style={me.boxStyle(props)}>
+    return <div className="zoomable-box" style={{
+      ...me.boxStyle(props),
+      ...(props.boxSync ? {
+        width: fixedWidth || Handle.calculation(me, "width"),
+        height: fixedHeight || Handle.calculation(me, "height")
+      } : {})
+    }}>
       <div className="zoomable-content" style={{
         width: fixedWidth || Handle.calculation(me, "width"),
         height: fixedHeight || Handle.calculation(me, "height")
