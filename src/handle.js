@@ -73,7 +73,8 @@ class Handle {
   }
   static topMove(me, event) {//zoomable向上拉伸
     const { coordinate, change, position } = me.state;
-    const { changePosition } = me.props;
+    const { changePosition, fixedHeight } = me.props;
+    if(fixedHeight) return;
     const changeY = event.clientY - coordinate.y;
     me.setState({
       change:{
@@ -88,6 +89,8 @@ class Handle {
   }
   static rightMove(me, event) {//zoomable向右拉伸
     const { coordinate, change } = me.state;
+    const { fixedWidth } = me.props;
+    if(fixedWidth) return;
     me.setState({
       change:{
         x: event.clientX - coordinate.x,
@@ -99,6 +102,8 @@ class Handle {
   }
   static bottomMove(me, event) {//zoomable向下拉伸
     const { coordinate, change } = me.state;
+    const { fixedHeight } = me.props;
+    if(fixedHeight) return;
     me.setState({
       change:{
         x: change.x,
@@ -110,7 +115,8 @@ class Handle {
   }
   static leftMove(me, event) {//zoomable向左拉伸
     const { coordinate, change, position } = me.state;
-    const { changePosition } = me.props;
+    const { changePosition, fixedWidth } = me.props;
+    if(fixedWidth) return;
     const changeX = event.clientX - coordinate.x;
     me.setState({
       change:{

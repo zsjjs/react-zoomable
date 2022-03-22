@@ -1,15 +1,14 @@
 /* @author yanjun
  * @date 2018.09
 */
-import {Component} from 'react';
+import { Component, createRef } from 'react';
 import './zoomable.less';
 import Handle from './handle';
 const timestamp = Date.now();
 const defaultProps = {
   used: true,
   direction: ["top", "right-top", "right", "right-bottom", "bottom", "left-bottom", "left", "left-top"],
-  borderWidth: 2,
-  boxSync: true
+  borderWidth: 2
 };
 
 class Content extends Component {
@@ -35,6 +34,7 @@ class Content extends Component {
       reverseX: false,
       reverseY: false
     };
+    this.ref = createRef();
   }
   componentDidMount() {
     const {
@@ -60,6 +60,23 @@ class Content extends Component {
       width: this.defaultSize(childNode.offsetWidth, width.min, width.max),
       height: this.defaultSize(childNode.offsetHeight, height.min, height.max)
     });
+  }
+  componentDidUpdate(prevProps, prevState) {
+    const dom = this.ref.current;
+    if(
+      !this.props.fixedWidth &&
+      dom && dom.parentNode &&
+      prevState.change.x !== this.state.change.x
+    ) {
+      dom.parentNode.style.width = `${Handle.calculation(this, "width")}px`;
+    }
+    if(
+      !this.props.fixedHeight &&
+      dom && dom.parentNode &&
+      prevState.change.y !== this.state.change.y
+    ) {
+      dom.parentNode.style.height = `${Handle.calculation(this, "height")}px`;
+    }
   }
   defaultSize(defaultSize, min, max) {
     if (min && min > defaultSize) {
@@ -103,19 +120,11 @@ class Content extends Component {
   }
   render() {
     const me = this;
-    const {children, zoomable, fixedWidth, fixedHeight} = me.props;
+    const {children, zoomable} = me.props;
     const props = Object.assign({}, defaultProps, zoomable);
-    return <div className="zoomable-box" style={{
-      ...me.boxStyle(props),
-      ...(props.boxSync ? {
-        width: fixedWidth || Handle.calculation(me, "width"),
-        height: fixedHeight || Handle.calculation(me, "height")
-      } : {})
-    }}>
-      <div className="zoomable-content" style={{
-        width: fixedWidth || Handle.calculation(me, "width"),
-        height: fixedHeight || Handle.calculation(me, "height")
-      }}>
+    me.boxStyle(props);
+    return <div ref={this.ref} className="zoomable-box">
+      <div className="zoomable-content">
         <div className={`stretchable-size size${timestamp}`}>
           {children}
         </div>

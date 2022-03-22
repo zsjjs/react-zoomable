@@ -32,7 +32,11 @@ class Zoomable extends Component {
   render() {
     const me = this;
     const { positionX, positionY } = me.state;
-    const { draggable={} , className="", style={}} = me.props;
+    const { draggable={} , className="", style={}, fixedHeight, fixedWidth } = me.props;
+    const defSize = {
+      ...(fixedWidth ? { width: fixedWidth } : {}),
+      ...(fixedHeight ? { height: fixedHeight } : {})
+    };
     const options = Object.assign({
       handle: `.${defaultDragArea}`
     }, draggable.options, {
@@ -48,7 +52,8 @@ class Zoomable extends Component {
     return (draggable.used === false ? <div className={`transform-box ${className}`} style={{
       touchAction: "none",
       transform: `translate(${positionX}px, ${positionY}px)`,
-      ...style
+      ...style,
+      ...defSize
       }}><Content
         {...me.props}
         changePosition={me.changePosition.bind(me)}
@@ -56,7 +61,7 @@ class Zoomable extends Component {
         positionY={positionY}
       /></div> :
       <Draggable {...options}>
-        <div style={style} className={`transform-box ${className}`}>
+        <div style={{...style, defSize}} className={`transform-box ${className}`}>
           <Content
             test={me} {...me.props}
             changePosition={me.changePosition.bind(me)}
@@ -71,6 +76,8 @@ class Zoomable extends Component {
 Zoomable.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
+  fixedWidth: PropTypes.number,
+  fixedHeight: PropTypes.number,
   defaultPositionX: PropTypes.number,//default 0 //主体相对移动X轴
   defaultPositionY: PropTypes.number,//default 0 //主体相对移动Y轴
   draggable: PropTypes.shape({
@@ -89,8 +96,7 @@ Zoomable.propTypes = {
     height: PropTypes.shape({
       min: PropTypes.number,//default 10 拉伸最小高度
       max: PropTypes.number//default 500 拉伸最大高度
-    }),
-    boxSync: PropTypes.bool//default false, 最外层是否需要同步宽高样式
+    })
   }),
   onZoomStart: PropTypes.func,//拉伸开始时调用,param{direction:方向,position:位置{x,y},width:宽度,height:高度}
   onZooming: PropTypes.func,//拉伸进行中调用,param同上

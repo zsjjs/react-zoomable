@@ -124,12 +124,6 @@
       <td align="center">true</td>
     </tr>
     <tr>
-      <td colspan="2">boxSync</td>
-      <td>最外层是否需要同步宽高样式</td>
-      <td align="center">boolean</td>
-      <td align="center">false</td>
-    </tr>
-    <tr>
       <td colspan="2">direction</td>
       <td>可拉伸方向</td>
       <td align="center">array[string]</td>
