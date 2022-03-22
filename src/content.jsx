@@ -120,11 +120,14 @@ class Content extends Component {
   }
   render() {
     const me = this;
-    const {children, zoomable} = me.props;
+    const {children, zoomable, fixedHeight, fixedWidth} = me.props;
     const props = Object.assign({}, defaultProps, zoomable);
     me.boxStyle(props);
     return <div ref={this.ref} className="zoomable-box">
-      <div className="zoomable-content">
+      <div className="zoomable-content" style={{
+        width: fixedWidth || Handle.calculation(this, "width"),
+        height: fixedHeight || Handle.calculation(this, "height")
+      }}>
         <div className={`stretchable-size size${timestamp}`}>
           {children}
         </div>
