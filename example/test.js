@@ -16,7 +16,7 @@ class App extends React.Component {
       },
       fixedHeight: 300,
       draggable: {
-        used: false
+        used: true
       },
       onZoomStart: (result) => {
         console.log("onZoomStart", result);
@@ -27,12 +27,12 @@ class App extends React.Component {
       onZooming: (result) => {
         console.log("onZooming", result);
       }
-    }
+    };
     return <Zoomable style={{background:"blue"}} {...testOption}>
       <div className="test"></div>
     </Zoomable>;
   }
-};
+}
 
 ReactDOM.render(
   <App />,
